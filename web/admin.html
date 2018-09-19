@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="hider"></div>
+<div class="mymodal"></div>
+<div class="container">
+    <div class="menu">
+        <div class="logo">
+            <p>ADMIN</p>
+        </div>
+        <div class="orders menu_item menu_item_active">orders</div>
+        <div class="users menu_item">users</div>
+        <div class="products menu_item">products</div>
+
+        <div class="online">
+            <p>Unclosed: </p>
+            <p id="unclosedcon"></p>
+        </div>
+        <a class="menu-bottom" href="/logout">выйти</a>
+    </div>
+    <div class="header">
+        <h2 class="header-title">orders</h2>
+    </div>
+    <div class="content" id="admin_content"></div>
+</div>
+
+
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+* {
+    font-family: Tahoma;
+    font-weight: 300;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, b, u, i {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    background-color: linen;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.menu {
+    width: 200px;
+    height: 100vh;
+    background-color: darkslategray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.header {
+    width: calc(100% - 200px);
+    background-color: darkslategray;
+    position: fixed;
+    height: 70px;
+    right: 0;
+    top: 0;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 10;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-left: 30px;
+    text-transform: uppercase;
+}
+
+.content {
+    position: relative;
+    padding: 100px 30px 30px 230px;
+    background-color: linen;
+}
+
+.logo {
+    height: 70px;
+    width: 100%;
+    background-color: darkcyan;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.menu_item {
+    color: rgba(255, 255, 255, 0.6);
+    padding-left: 30px;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: .3s;
+}
+
+.menu_item:hover, .menu_item_active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.menu-bottom {
+    height: 70px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #7b0006;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: .3s;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-bottom:hover {
+    cursor: pointer;
+    background-color: #4f0006;
+    text-decoration: none;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    font-weight: 700;
+}
+
+.product_edit, .product_del, .change_status, .order_look, .order_status, .user_simple, .user_black_list, .user_banned, .user_edit {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 0;
+    background-size: contain;
+    opacity: .6;
+    transition: .3s;
+}
+
+.product_edit, .user_edit {
+    background-image: url(../img/edit.png);
+}
+
+.product_del {
+    background-image: url(../img/delete.png);
+}
+
+.active_st {
+    background-image: url(../img/unlock.png);
+}
+
+.unactive_st, .user_black_list {
+    background-image: url(../img/lock.png);
+}
+
+.order_look {
+    background-image: url(../img/look.png);
+}
+
+.order_cancelled {
+    background-image: url(../img/delete.png);
+}
+
+.order_processed {
+    background-image: url(../img/arrow_right.png);
+}
+
+.order_paid {
+    background-image: url(../img/approve.png);
+}
+
+.user_simple {
+    background-image: url(../img/user-512.png);
+}
+
+.user_banned {
+    background-image: url(../img/ban-512.png);
+}
+
+.product_edit:hover, .product_del:hover, .change_status:hover, .order_look:hover, .order_status:hover, .user_change:hover, .user_edit:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.hider {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+}
+
+.mymodal {
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -300px;
+    z-index: 100;
+    display: none;
+}
+
+.close {
+    font-size: 30px;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    transition: .3s;
+    color: gray;
+}
+
+.close:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.modalform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.modalform input, .modalform textarea {
+    color: black;
+    padding: 5px;
+    margin: 5px 0 10px 0;
+    font-size: 14px;
+}
+
+.modalform textarea {
+    resize: none;
+
+}
+
+.modalform p {
+    font-size: 12px;
+}
+
+.addproduct {
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+}
+
+.addproduct input, .addproduct textarea {
+    padding: 5px 10px;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.addproduct input[type=submit] {
+    width: 200px;
+    background-color: greenyellow;
+    border: 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.addproduct input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #00e21f;
+}
+
+.addproduct textarea {
+    resize: none;
+}
+
+.head_orders {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.pr_price, .pr_amount, .pr_status, .pr_id, .order_id, .order_total {
+    text-align: center;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.online {
+    margin-top: 40px;
+    color: white;
+    padding: 15px 0 15px 30px;
+}
+
+.online p{
+    display: inline-block;
+}

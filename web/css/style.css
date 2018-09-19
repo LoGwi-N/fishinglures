@@ -1,0 +1,656 @@
+* {
+    font-family: Tahoma;
+    font-weight: 300;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, b, u, i {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.login-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.form {
+    width: 300px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .7);
+    margin-bottom: 100px;
+}
+
+.login-form input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.useradd-wrap {
+    width: 500px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .7);
+    margin: 100px auto;
+}
+
+.useradd-wrap h2 {
+
+}
+
+/**/
+
+.bg-page {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg.jpg);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+}
+
+.container {
+    width: 1100px;
+    background-color: rgba(255, 255, 255, .9);
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+    border-top: 1px solid gray;
+    padding: 25px 0;
+}
+
+.menu {
+    width: 25%;
+    padding-right: 15px;
+    position: relative;
+}
+
+.menu:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    background-color: gray;
+    right: 0;
+    top: 0;
+}
+
+.content {
+    width: 75%;
+    padding-left: 15px;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+.menu-item {
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.menu-item h2 {
+    text-align: center;
+    color: blue;
+    margin-bottom: 10px;
+}
+
+#login-form {
+    width: 100%;
+}
+
+#login-form input, .submit {
+    width: 100%;
+    margin: 10px 0;
+    background-color: #fff;
+    border: lightgray;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.submit {
+    background-color: darkslateblue;
+    text-transform: uppercase;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.submit:hover {
+    background-color: #6f3db2;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 30%;
+    margin-bottom: 20px;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
+    padding: 15px 0;
+    background-color: white;
+    box-shadow: 1px 1px 2px black;
+}
+
+.product-wrap {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    text-align: left;
+    text-decoration: underline;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.desc {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.product-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.stock {
+    color: #21e100;
+}
+
+.amount {
+    font-size: 14px;
+    text-shadow: 1px 1px #1fd400;
+}
+
+.instock {
+    font-size: 12px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.tocard {
+    border: 0;
+    background-color: orangered;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.tocard:hover {
+    background-color: #FF9F00;
+    cursor: pointer;
+}
+
+.unactive, .unreg {
+    background-color: gray !important;
+    position: relative;
+}
+
+.unactive:after {
+    transition: .3s;
+    transform: scale(0);
+    transform-origin: left top;
+    content: "Товара нет на складе";
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    padding: 5px;
+    color: black;
+    font-size: 12px;
+    font-weight: 100;
+    top: 25px;
+    left: 50%;
+    width: 75px;
+}
+
+.unreg:after {
+    transition: .3s;
+    transform: scale(0);
+    transform-origin: left top;
+    content: "Для заказа нужно зарегистрироваться";
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    padding: 5px;
+    color: black;
+    font-size: 12px;
+    font-weight: 100;
+    top: 25px;
+    left: 50%;
+}
+
+.unactive:hover::after, .unreg:hover::after {
+    transform: scale(1);
+}
+
+.unactive:hover, .unreg:hover {
+    cursor: default !important;
+}
+
+.tocard:active {
+    background-color: #ffc800;
+}
+
+.count-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 30px;
+    padding: 0 15px;
+}
+
+.count-wrap button {
+    width: 25px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    transition: .3s;
+    font-weight: 600;
+}
+
+.count-wrap button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.count-wrap button:active {
+    cursor: pointer;
+    background-color: #b0b0b0;
+}
+
+.count {
+    width: 30px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid gray;
+    border-right: 0;
+    border-left: 0;
+}
+
+#welcome {
+    font-size: 16px !important;
+    text-align: left !important;
+}
+
+#card {
+    background-color: #ffd4c5;
+    padding: 10px;
+    margin: 15px 0;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+#card-count {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.del {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: -0px;
+    transition: .2s;
+}
+
+.del:hover {
+    cursor: pointer;
+    border: 1px solid orangered;
+    color: orangered;
+}
+
+.cart li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgoldenrodyellow;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.cart-left {
+    width: 80%;
+}
+
+.cart-right {
+    width: 20%;
+}
+
+.content h2 {
+    width: 100%;
+}
+
+.cart {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.cart-right {
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wr_end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderbtn {
+    background-color: orangered;
+    border: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.un_order {
+    background-color: lightgray;
+    border: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 25px;
+    text-transform: uppercase;
+}
+
+.orderbtn:hover {
+    background-color: #ff9e0b;
+    cursor: pointer;
+}
+
+.orders {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.order-item {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.processed {
+    background-color: #ffc9b8;
+}
+
+.paid {
+    background-color: #deffc0;
+}
+
+.cancelled {
+    background-color: lightgray;
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+}
+
+.order-pr {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.order-title {
+    width: 70%;
+}
+
+.order-count, .order-price, .order-total {
+    width: 15%;
+    text-align: right;
+}
+
+.total {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pay {
+    background-color: limegreen;
+    padding: 10px 20px;
+    color: white;
+    border: 0;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: .3s;
+}
+
+.pay:hover {
+    background-color: #8fcd59;
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: orangered;
+    padding: 5px 15px;
+    color: white;
+    border: 0;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: bottom;
+    transition: .3s;
+}
+
+.cancel:hover {
+    background-color: #ff7d5d;
+    cursor: pointer;
+}
+
+#card-title span {
+    font-size: 12px;
+}
+
+#card-title b {
+    font-weight: 700;
+}
+
+.useradd {
+    margin: 20px 0;
+}
+
+.useradd input, .useradd textarea {
+    width: 240px;
+    border: 1px solid gray;
+    padding: 10px 25px;
+    background-color: white;
+    font-size: 16px;
+    display: block;
+    margin: 10px 0 5px 0;
+}
+
+.useradd input[type=submit] {
+    background-color: greenyellow;
+    border: 0;
+    transition: .3s;
+}
+
+.useradd input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #b7ff87;
+    transform: translateX(50px);
+}
+
+.menu-item p, .menu-item input {
+    display: inline-block;
+    color: black;
+    vertical-align: middle;
+}
+
+.menu-item input {
+    width: 50%;
+    border: 0;
+    padding: 5px 10px 5px 5px;
+    font-size: 14px;
+}
+
+.menu-item p {
+    width: 30%;
+    padding-right: 5px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 10px;
+}
+
+.info-user {
+    width: 100%;
+    background-color: #eaeaea !important;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+input:disabled {
+    background-color: transparent;
+}
+
+.info-user .info_btn {
+    background-color: navajowhite;
+    border: 0;
+    padding: 10px;
+    margin: 15px 15px 10px 15px;
+    transition: .3s;
+    width: auto !important;
+}
+
+.info-user .info_btn:hover {
+    cursor: pointer;
+    background-color: #bfff6b;
+}
+
+.movetoreg {
+    display: block;
+    background: lightslategrey;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid transparent;
+    transition: .3s;
+    font-weight: 600;
+}
+
+.movetoreg:hover {
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid lightslategrey;
+    color: lightslategrey;
+}
+
+.bantext {
+    padding: 15px;
+    background: firebrick;
+    color: white;
+    font-weight: 600;
+}
+
+.error_input {
+    font-size: 12px;
+    color: red;
+    font-weight: 600;
+}
+
+select {
+    font-size: 18px;
+    padding: 5px;
+}

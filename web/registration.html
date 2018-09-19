@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="hider"></div>
+<div class="bg-page"></div>
+
+<div class="container">
+    <header class="header">
+        <h1></h1>
+        <select name="lang" id="lang" required="required">
+            <option value="ru">ru</option>
+            <option value="en">en</option>
+        </select>
+    </header>
+    <div class="wrapper">
+        <div class="menu">
+            <div class="menu-item">
+                <h2 class="menu_title"></h2>
+                <form action="/auth" method="post" id="login-form">
+                    <input type="text" name="login" required>
+                    <input type="password" name="password" required>
+                    <button type="submit" class="submit"></button>
+                </form>
+            </div>
+        </div>
+        <div class="content" style="display: block;">
+            <h2 class="regtitle"></h2>
+            <form class="useradd" id="regform">
+                <input type="text" name="login" required>
+                <span class="login_error error_input"></span>
+                <input type="password" name="password" required>
+                <input type="text" name="name" required>
+                <input type="text" name="surname" required>
+                <input type="email" name="email" required>
+                <span class="email_error error_input"></span>
+                <input type="tel" name="phone" required>
+                <textarea rows="3" type="text" name="address" required style="resize: none"></textarea>
+                <input type="submit">
+                <span class="msg error_input"></span>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    localObj = local(localization);
+
+    function local(localization) {
+        var xhr = new XMLHttpRequest();
+
+        function reqReadyStateChange() {
+            if (xhr.readyState == 4) {
+                var status = xhr.status;
+                if (status == 200) {
+                    console.log("Localization load...");
+                    var data = xhr.responseText;
+                    localObj = JSON.parse(data);
+                    localization();
+                }
+            }
+        }
+        xhr.open("POST", "/localization", true);
+        xhr.onreadystatechange = reqReadyStateChange;
+        xhr.send();
+    }
+
+    function localization() {
+        console.log("localization");
+        document.querySelector("h1").innerText = localObj["titleSite"];
+        document.title = localObj["titleSite"];
+        var menu = document.querySelector(".menu-item");
+        if (menu.querySelector(".menu_title") != null) menu.querySelector(".menu_title").innerText = localObj["welcome"];
+        if (menu.querySelector(".submit") != null) menu.querySelector(".submit").innerText = localObj["loginsite"];
+        if (menu.querySelector("input[name$='login']") != null) menu.querySelector("input[name$='login']").placeholder = localObj["login"];
+        if (menu.querySelector("input[name$='password']") != null) menu.querySelector("input[name$='password']").placeholder = localObj["password"];
+
+        var content = document.querySelector(".content");
+        content.querySelector(".regtitle").innerText = localObj["registration"];
+        content.querySelector("input[name$='login']").placeholder = localObj["regLogin"];
+        content.querySelector("input[name$='password']").placeholder = localObj["regPass"];
+        content.querySelector("input[name$='name']").placeholder = localObj["regName"];
+        content.querySelector("input[name$='surname']").placeholder = localObj["regSurname"];
+        content.querySelector("input[name$='email']").placeholder = localObj["regEmail"];
+        content.querySelector("input[name$='phone']").placeholder = localObj["regPhone"];
+        content.querySelector("textarea[name$='address']").placeholder = localObj["regAddress"];
+        content.querySelector("input[type$='submit']").value = localObj["registration"];
+
+
+        var locale = localObj["locale"];
+        document.querySelector('#lang [value="' + locale + '"]').selected = true;
+    }
+
+
+    document.querySelector('#regform').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = new FormData(this);
+        data = data.entries();
+        var obj = data.next();
+        var retrieved = {};
+        while (obj.value !== undefined) {
+            retrieved[obj.value[0]] = obj.value[1];
+            obj = data.next();
+        }
+        var xhr = new XMLHttpRequest();
+        var urlEncodedData = "";
+        var urlEncodedDataPairs = [];
+
+        for (var name in retrieved) {
+            urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(retrieved[name]));
+        }
+        urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+'); // parse object into urlEncoded String
+
+        xhr.addEventListener('load', function () {
+            console.log('Data sent.');
+            var data = xhr.responseText;
+            console.log(data);
+            var email_error = document.getElementsByClassName("email_error");
+            var login_error = document.getElementsByClassName("login_error");
+            var error = document.getElementsByClassName("msg");
+            email_error[0].innerText = "";
+            login_error[0].innerText = "";
+            error[0].innerText = "";
+            switch (data) {
+                case "email": {
+                    email_error[0].innerText = localObj["email_error"];
+                    break;
+                }
+                case "login": {
+                    login_error[0].innerText = localObj["login_error"];
+                    break;
+                }
+                case "error": {
+                    login_error[0].innerText = localObj["reg_error"];
+                    break;
+                }
+                case "success": {
+                    alert(localObj["reg_success"]);
+                    location = "/index.html";
+                    break;
+                }
+                default: {
+                    var und_error = document.getElementsByClassName("msg");
+                    und_error[0].innerText = localObj["und_error"];
+                    break;
+                }
+            }
+
+        });
+        xhr.addEventListener('error', function () {
+            console.log('Oops! Something goes wrong.');
+        });
+
+        xhr.open('POST', '/reg');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(urlEncodedData); // send the form
+    });
+</script>
+
+
+<script src="js/main.js"></script>
+</body>
+</html>

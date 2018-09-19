@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="hider"></div>
+<div class="bg-page"></div>
+
+<div class="container">
+    <header class="header">
+        <h1></h1>
+        <select name="lang" id="lang" required="required">
+            <option value="ru">ru</option>
+            <option value="en">en</option>
+        </select>
+    </header>
+    <div class="wrapper">
+        <div class="menu">
+            <div class="menu-item">
+                <h2 class="menu_title"></h2>
+                <form action="/auth" method="post" id="login-form">
+                    <input type="text" name="login" required>
+                    <input type="password" name="password" required>
+                    <button type="submit" class="submit"></button>
+                </form>
+                <a class="movetoreg" href="/registration.html"></a>
+            </div>
+        </div>
+        <div class="content" id="contentmain"></div>
+    </div>
+</div>
+
+
+<div class="result" id="users">
+
+</div>
+
+<!--<div class="useradd-wrap" id="modal-registration">-->
+<!--<h2>Регистрация</h2>-->
+<!--<form class="useradd" action="/reg" method="post">-->
+<!--<input type="text" name="login" required placeholder="Введите логин">-->
+<!--<input type="password" name="password" required placeholder="Введите пароль">-->
+<!--<input type="text" name="name" required placeholder="Введите Имя">-->
+<!--<input type="text" name="surname" required placeholder="Введите Фамилию">-->
+<!--<input type="email" name="email" required placeholder="Введите почту">-->
+<!--<input type="tel" name="phone" required placeholder="Введите номер телефона">-->
+<!--<input type="text" name="address" required placeholder="Введите адрес">-->
+<!--<input type="submit" value="SEND">-->
+<!--</form>-->
+<!--</div>-->
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
